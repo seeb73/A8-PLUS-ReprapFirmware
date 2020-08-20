@@ -21,10 +21,10 @@ leds.diagnostic = 1.18;
 lpc.internalSDCard.spiFrequencyHz  = 25000000;
 
 //Only supports 1 External SDCard
-//externalSDCard.csPin               = 0.28;
-//externalSDCard.cardDetectPin       = 0.27;
-//lpc.externalSDCard.spiFrequencyHz  = 4000000;
-//lpc.externalSDCard.spiChannel  = 0;
+externalSDCard.csPin               = 0.28;
+externalSDCard.cardDetectPin       = 0.27;
+lpc.externalSDCard.spiFrequencyHz  = 4000000;
+lpc.externalSDCard.spiChannel  = 0;
 
 
 //LCD Pins (only ST9720 SPI currently supported)
@@ -44,8 +44,29 @@ heat.tempSensePins = {bedtemp, e0temp}; //Max of 3 entries
 //Analogue to Digital prefilter
 adc.prefilter.enable = true
 	
+//==========================================================================================================================
+
+//lpc.board = mkssbase_1.3
+//leds.diagnostic = 1.18; //RRF Diagnostics Pin (LED1)	
+
+//                    Bed   E0    E1
+//heat.tempSensePins = {0.23, 0.24, 0.25}; //Max of 3 entries
+//heat.spiTempSensorCSPins = { } 
+//atxPowerPin = NoPin;
+        
+  
+//**SPI Devices**
+//Only supports 1 External SDCard
+//externalSDCard.csPin         = 0.28;
+//externalSDCard.cardDetectPin = 0.27;
+//lpc.externalSDCard.spiFrequencyHz  = 4000000;
 
 
-	
-
-
+//LCD Pins (only ST9720 SPI currently supported)
+//lcd.lcdCSPin =       0.16; //LCD Chip Select
+//lcd.lcdBeepPin =     1.31;
+//lcd.encoderPinA =    3.25;
+//lcd.encoderPinB =    3.26;
+//lcd.encoderPinSw =   1.30; //click
+//lcd.lcdDCPin =       NoPin;  //DataControl Pin (A0) if none used set to NoPin
+//lcd.panelButtonPin = 2.11; //Extra button on RRD Panels
