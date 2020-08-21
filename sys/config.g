@@ -8,7 +8,7 @@ M550 P"Anet A8 PLUS"                             ; set printer name
 M918 P1 E4 F2000000                            ; configure direct-connect display
 
 ; Network
-M551 P"zdzislaw"                                  ; set password
+M551 P"password"                                  ; set password
 M540 P00:1F:11:02:04:20                        ; set custom MAC address
 M552 P192.168.3.5 S1                           ; enable network and acquire dynamic address via DHCP
 M586 P0 S1                                     ; enable HTTP
@@ -49,9 +49,9 @@ M558 P0 H5 F120 T6000                          ; disable Z probe but set dive he
 M557 X15:285 Y15:285 S20                       ; define mesh grid
 
 
-;By damian heaters
+;By Damian heaters
 ; Heaters ;
-;Bed Heater config
+; Bed Heater config
 M140 H0                                        ; map heated bed to heater 0
 M308 S0 P"bedtemp" Y"thermistor" T100000 B4138 ; configure sensor 0 as thermistor on pin bedtemp
 M950 H0 C"bed" T0                          ; create bed heater output on bedheat and map it to sensor 0
