@@ -25,13 +25,10 @@ M569 P1 S1 ;T0.6:0.6:0.4:0.4                   ; BED oś Y
 M569 P2 S0 ;T0.6:0.6:0.4:0.4                   ; Oś Z
 M569 P3 S0 ;T0.6:0.6:0.4:0.4                   ; Extruder
 
-; add by seeb
-;M569 P4 S1 ;T0.6:0.6:0.4:0.4                    ; physical drive 4 goes forwards using A5984 driver timings
-
 M584 X0 Y1 Z2 E3                               ; set drive mapping
 
 ; steppers by Seeb
-;M584 X0 Y1 Z3:4 E3				; two Z motors connected to driver outputs Z and E1
+;M584 X0 Y1 Z2:4 E3				; two Z motors connected to driver outputs Z and E1
 
 
 M92 X80.00 Y80.00 Z400.00 E420.00              ; set steps per mm
