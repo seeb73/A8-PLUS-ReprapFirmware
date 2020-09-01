@@ -32,6 +32,8 @@ M584 X0 Y1 Z2 E3                               ; set drive mapping
 
 
 M92 X80.00 Y80.00 Z400.00 E420.00              ; set steps per mm
+;M92 X100 Y100 Z400 E96.939                    ; Set steps per mm (at default 16x microstepping)
+
 M566 X900.00 Y900.00 Z12.00 E120.00            ; set maximum instantaneous speed changes (mm/min)
 M203 X6000.00 Y6000.00 Z180.00 E1200.00        ; set maximum speeds (mm/min)
 M201 X800.00 Y800.00 Z20.00 E250.00            ; set accelerations (mm/s^2)
