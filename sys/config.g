@@ -92,7 +92,7 @@ M574 Z1 S1 P"!zstop"                            ; configure active-high endstop 
 ; Z-Probe BL touch by seeb
 M558 P9 H6 F120 T8000 X0 Y0 Z1 C"^zstop" ; disable Z probe but set dive height, probe speed and travel speed M950 S0 C"1.23"
 M950 S0 C"1.23"
-
+;G31
 
 ;By damian heaters
 ; Heaters ;
