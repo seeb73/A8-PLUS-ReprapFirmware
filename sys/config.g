@@ -18,8 +18,30 @@ M586 P1 S0                                     ; disable FTP
 M586 P2 S1                                     ; enable Telnet
 
 
+; Fans
+M950 F0 C"E2" Q100                           ; create fan 0 on pin fan0 and set its frequency
+M106 P0 H1 T30                                 ; set fan 0 value. Thermostatic control is turned on
+
+
+
+
+
+;M950 F1 C"" Q500				; fan extruder
+;M106 P1 C"" S1 H1 T30		; odpalamy jeśli temp na extruderze ma 30 stopni.
+
+;new config fan2 - extruder, fan0 - cooling
+;M950 F2 C"fan2" Q100                          ; create fan 0 on pin fan0 and set its frequency
+;M106 P2 C"FAN2" S1 H1 T40                     ; set fan 0 name and value. Thermostatic control is turned on
+;M950 F1 C"fan1" Q100                           ; create fan 1 on pin fan1 and set its frequency
+;M106 P1 C"FAN1" S1 H-1                         ; set fan 1 name and value. Thermostatic control is turned off
+
+
+
+
+
+
 ; Drives
-;M569 P0 S1 ;T0.6:0.6:0.4:0.4                   ; Oś X		<- MKS SBASE
+;M569 P0 S1 ;T0.6:0.6:0.4:0.4                  ; Oś X		<- MKS SBASE
 M569 P0 S0 ;T0.6:0.6:0.4:0.4                   ; BED oś Y  	<- MKS SGEN
 
 
@@ -29,26 +51,19 @@ M569 P1 S0 ;T0.6:0.6:0.4:0.4                   ; BED oś Y  	<- MKS SGEN
 
 M569 P2 S0 ;T0.6:0.6:0.4:0.4                   ; Oś Z (dual)
 
-M569 P3 S0 ;T0.6:0.6:0.4:0.4                   ; Extruder
-M569 P4 S0 ;
+;M569 P3 S0 ;T0.6:0.6:0.4:0.4                   ; Extruder <- MKS SBASE
+M569 P3 S1 ;T0.6:0.6:0.4:0.4                   ; Extruder <- MKS SGEN
 
+M569 P4 S0 				       ; Second Z-axis
 
-; add by seeb
-;M569 P4 S1 ;T0.6:0.6:0.4:0.4                    ; physical drive 4 goes forwards using A5984 driver timings
-
-;M584 X0 Y1 Z2 E3                               ; set drive mapping
+;M584 X0 Y1 Z2 E3                               ; set drive mapping with parallel adapter
 M584 X0 Y1 Z2:4 E3                               ; set drive mapping <- DUAL Z axis
-
-
-; steppers by Seeb
-;M584 X0 Y1 Z3:4 E3				; two Z motors connected to driver outputs Z and E1
-
 
 M92 X80.00 Y80.00 Z400.00 E420.00              ; set steps per mm
 M566 X900.00 Y900.00 Z12.00 E120.00            ; set maximum instantaneous speed changes (mm/min)
 M203 X6000.00 Y6000.00 Z180.00 E1200.00        ; set maximum speeds (mm/min)
 M201 X800.00 Y800.00 Z20.00 E250.00            ; set accelerations (mm/s^2)
-M906 X800 Y800 Z800 E800 I30                   ; set motor currents (mA) and motor idle factor in per cent
+M906 X900 Y900 Z900 E900 I30                   ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                        ; Set idle timeout
 
 ; Axis Limits
@@ -61,20 +76,22 @@ M208 X300 Y300 Z350 S0                         ; set axis maxima
 ;M574 Z1 S1 P"!zstop"                            ; configure active-high endstop for low end on Z via pin zstop
 
 
-; Endstops sbase 1.3
+; Endstops MKS SBASE 1.3, Atension endstop in A8 PLUS are signal to 5v(* . *), must change signal to ground (* * .)  
 M574 X1 S1 P"!xstop"                            ; configure active-high endstop for high end on X via pin xstop
 M574 Y1 S1 P"!ystop"                            ; configure active-high endstop for high end on Y via pin ystop
 M574 Z1 S1 P"!zstop"                            ; configure active-high endstop for high end on Z via pin zstop
+
+; Z-endstop switch
+;M558 P0 X0 Y0 Z0 				; 0=NO PROBE
 
 
 ; Z-Probe
 ;M558 P0 H5 F120 T6000                          ; disable Z probe but set dive height, probe speed and travel speed
 ;M557 X15:285 Y15:285 S20                       ; define mesh grid
 
-; Z-endstop
-M558 P0 X0 Y0 Z0 				; 0=NO PROBE
-;M574 X1 Y2 Z1 S1 				; set endstop configuration (S1 active high should be normally open switch?)
-
+; Z-Probe BL touch by seeb
+M558 P9 H6 F120 T8000 X0 Y0 Z1 C"^zstop" ; disable Z probe but set dive height, probe speed and travel speed M950 S0 C"1.23"
+M950 S0 C"1.23"
 
 
 ;By damian heaters
@@ -92,9 +109,6 @@ M950 H1 C"e0heat" T1                           ; create nozzle heater output on 
 M307 H1 B0 S1                                  ; disable bang-bang mode for heater  and set PWM limit
 M143 H1 S250  
 
-; Fans
-M950 F0 C"fan0" Q500                           ; create fan 0 on pin fan0 and set its frequency
-M106 P0 S0 H1 T30                              ; set fan 0 value. Thermostatic control is turned on
 
 ; Tools
 M563 P0 D0 H1 F0                               ; define tool 0
