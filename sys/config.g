@@ -79,7 +79,7 @@ M208 X300 Y300 Z350 S0                         ; set axis maxima
 ; Endstops MKS SBASE 1.3, Atension endstop in A8 PLUS are signal to 5v(* . *), must change signal to ground (* * .)  
 M574 X1 S1 P"!xstop"                            ; configure active-high endstop for high end on X via pin xstop
 M574 Y1 S1 P"!ystop"                            ; configure active-high endstop for high end on Y via pin ystop
-M574 Z1 S1 P"!zstop"                            ; configure active-high endstop for high end on Z via pin zstop
+;M574 Z1 S1 P"!zstop"                            ; configure active-high endstop for high end on Z via pin zstop
 
 ; Z-endstop switch
 ;M558 P0 X0 Y0 Z0 				; 0=NO PROBE
