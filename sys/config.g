@@ -13,6 +13,9 @@ M918 P1 E4 F2000000                            ; configure direct-connect displa
 M551 P"zdzislaw"                               ; set password
 M540 P00:1F:11:02:04:20                        ; set custom MAC address
 M552 P192.168.3.5 S1                           ; enable network and acquire dynamic address via DHCP
+M553 P255.255.255.240                          ; netmask
+M554 P192.168.3.2                              ; default gw
+
 M586 P0 S1                                     ; enable HTTP
 M586 P1 S0                                     ; disable FTP
 M586 P2 S1                                     ; enable Telnet
