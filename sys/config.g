@@ -22,10 +22,6 @@ M586 P2 S1                                     ; enable Telnet
 M950 F0 C"E2" Q100                           ; create fan 0 on pin fan0 and set its frequency
 M106 P0 H1 T30                                 ; set fan 0 value. Thermostatic control is turned on
 
-
-
-
-
 ;M950 F1 C"" Q500				; fan extruder
 ;M106 P1 C"" S1 H1 T30		; odpalamy jeśli temp na extruderze ma 30 stopni.
 
@@ -34,9 +30,6 @@ M106 P0 H1 T30                                 ; set fan 0 value. Thermostatic c
 ;M106 P2 C"FAN2" S1 H1 T40                     ; set fan 0 name and value. Thermostatic control is turned on
 ;M950 F1 C"fan1" Q100                           ; create fan 1 on pin fan1 and set its frequency
 ;M106 P1 C"FAN1" S1 H-1                         ; set fan 1 name and value. Thermostatic control is turned off
-
-
-
 
 
 
@@ -69,12 +62,6 @@ M84 S30                                        ; Set idle timeout
 ; Axis Limits
 M208 X0 Y0 Z0 S1                               ; set axis minima
 M208 X300 Y300 Z350 S0                         ; set axis maxima
-
-; Endstops
-;M574 X1 S1 P"!xstop"                            ; configure active-high endstop for low end on X via pin xstop
-;M574 Y1 S1 P"!ystop"                            ; configure active-high endstop for low end on Y via pin ystop
-;M574 Z1 S1 P"!zstop"                            ; configure active-high endstop for low end on Z via pin zstop
-
 
 ; Endstops MKS SBASE 1.3, Atension endstop in A8 PLUS are signal to 5v(* . *), must change signal to ground (* * .)  
 M574 X1 S1 P"!xstop"                            ; configure active-high endstop for high end on X via pin xstop
