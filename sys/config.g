@@ -110,7 +110,10 @@ G10 P0 R0 S0                                   ; set initial tool 0 active and s
 ; Custom settings are not defined
 
 ; Miscellaneous
-M575 P1 S1 B57600                              ; enable support for PanelDue
+;M575 P1 S1 B57600                              ; enable support for PanelDue
+;MKS TFT28 v3.0 - M575 to change S1 to S3
+
+M575 P1 S3 B57600
 
 ;Load config-override on startup printer
 M501
