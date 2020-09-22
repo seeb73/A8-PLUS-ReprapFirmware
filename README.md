@@ -7,4 +7,5 @@ Latest release https://github.com/gloomyandy/RepRapFirmware/releases
 Knowledge base: https://github.com/gloomyandy/RepRapFirmware/wiki
 
 
-# BL/3D touch tutorial https://betrue3d.dk/bltouch-on-duet-wifi-configuratio-and-usage/ 
+# BL/3D touch tutorial 
+https://betrue3d.dk/bltouch-on-duet-wifi-configuratio-and-usage/ 
