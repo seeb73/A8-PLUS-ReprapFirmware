@@ -6,6 +6,8 @@ Latest release https://github.com/gloomyandy/RepRapFirmware/releases
 
 Knowledge base: https://github.com/gloomyandy/RepRapFirmware/wiki
 
+https://github.com/gloomyandy/RepRapFirmware/wiki/MKS-Sbase-Wifi
+
 
 # BL/3D touch tutorial 
 https://betrue3d.dk/bltouch-on-duet-wifi-configuratio-and-usage/ 
